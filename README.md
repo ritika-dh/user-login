@@ -4,6 +4,7 @@ Command for starting the application:-
 
 
 commands for testing the application:-
+Please read this file from code section in github instead of preview to get proper escape characters
 1) try to access resource without signing in
  curl -X GET http://localhost:8080/ping -w "%{http_code}"
 
@@ -41,8 +42,9 @@ output:- JWT expired at 2024-06-18T13:26:35Z. Current time: 2024-06-18T13:27:14Z
 
 7) get a new access token by sending a refreshToken request
  token=$(curl -H "Content-Type:application/json" -X POST http://localhost:8080/refreshtoken -d "${refreshToken}")
+check ${token} to confirm access token is recieved
 
-8) try accessing resource with new access token
+9) try accessing resource with new access token
  curl -X GET http://localhost:8080/ping -H "Accept: application/json" -H "Authorization: Bearer ${token}"
 
 output:- Hello World!
