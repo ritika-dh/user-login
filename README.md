@@ -1,5 +1,5 @@
 Command for starting the application:-
-1) move to the downloaded user-login folder
+1) move to the downloaded user-login folder and run mvn clean package -DskipTests
 2) docker-compose up --build
 
 
@@ -40,8 +40,7 @@ curl -X GET http://localhost:8080/ping -H "Accept: application/json" -H "Authori
 output:- JWT expired at 2024-06-18T13:26:35Z. Current time: 2024-06-18T13:27:14Z, a difference of 39702 milliseconds.
 
 7) get a new access token by sending a refreshToken request
- token=$(curl -H "Content-Type:application/json" -X POST http://localhost:8080/refreshtoken -d
-"${refreshToken}")
+ token=$(curl -H "Content-Type:application/json" -X POST http://localhost:8080/refreshtoken -d "${refreshToken}")
 
 8) try accessing resource with new access token
  curl -X GET http://localhost:8080/ping -H "Accept: application/json" -H "Authorization: Bearer ${token}"
